@@ -1,16 +1,14 @@
-const add = (a: number, b: number, showResult: boolean, phrase: string) => {
-  //   console.log(typeof a); vanilla script
-  const result = a + b;
-  if (showResult) {
-    console.log(phrase + result);
-  }
-  return result;
+// const person: object = { object 로 정의할경우 제대로된 타입추론불가함 = person : {}
+//   name: "junghoe",
+//   age: 30,
+// };
+const person: {
+  name: string;
+  age: number;
+} = {
+  name: "junghoe",
+  age: 30,
 };
 
-const number1 = 5;
-// const number1 = "5"; // --> 52.8
-const number2 = 2.8;
-
-const printResult = true;
-const prefix = "결과는 ===>";
-add(number1, number2, printResult, prefix);
+console.debug("🤔 ~ file: app.ts ~ line 6 ~ person", person);
+console.log(person.name);
