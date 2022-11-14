@@ -2,9 +2,22 @@
 //   name: "junghoe",
 //   age: 30,
 // };
-var person = {
+var person = 
+// : { 타입 추론이 명확히 가능할때는 타입을 명시하지 않는것이 가독성이 좋다.
+//   name: string;
+//   age: number;
+//   hobbies: string[];
+// }
+{
     name: "junghoe",
-    age: 30
+    age: 30,
+    hobbies: ["Sports", "Cooking"]
 };
-console.debug("🤔 ~ file: app.ts ~ line 6 ~ person", person);
 console.log(person.name);
+var favoriteActivities;
+favoriteActivities = ["tennis", "soccer"];
+for (var _i = 0, _a = person.hobbies; _i < _a.length; _i++) {
+    var item = _a[_i];
+    item.toUpperCase();
+    console.log(item);
+}
