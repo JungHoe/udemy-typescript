@@ -1,36 +1,19 @@
-type Combineable = number | string;
-const combine = (
-  a: Combineable,
-  b: Combineable,
-  resultType: "as-number" | "as-text" //리터럴타입
-) => {
-  let result: any;
-  if (
-    (typeof a === "number" && typeof b === "number") ||
-    resultType === "as-number"
-  ) {
-    result = +a + +b;
-  } else {
-    result = a.toString() + b.toString();
-  }
-  return result;
-  //   if (resultType === "as-number") {
-  //     return +result;
-  //   }
-  //   return result.toString();
-};
+function add(a: number, b: number): number {
+  // 함수 뒤에 type을 정의하면 return type이 정의된다.
 
-const combinedAges = combine(30, 26, "as-number");
+  return a + b;
+}
 
-console.debug("🤔 ~ file: app.ts ~ line 9 ~ combinedAges", combinedAges);
+function printResult0(numb: number): undefined {
+  return;
+}
+function printResult(numb: number): void {
+  //return type을 void로 추론함
 
-const combinedStringAges = combine("30", "26", "as-number");
+  console.debug("🤔 ~ file: app.ts:10 ~ pinrtResult ~ numb", numb);
+}
 
-console.debug(
-  "🤔 ~ file: app.ts ~ line 21 ~ combinedStringAges",
-  combinedStringAges
-);
+// printResult(add(10, 5));
+console.log(printResult(add(10, 5)));
 
-const combinedNames = combine("Jung", "Hoe", "as-text");
-
-console.debug("🤔 ~ file: app.ts ~ line 17 ~ combinedNames", combinedNames);
+let someValue: undefined;
