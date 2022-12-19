@@ -16,4 +16,20 @@ function printResult(numb: number): void {
 // printResult(add(10, 5));
 console.log(printResult(add(10, 5)));
 
-let someValue: undefined;
+// 컴파일시 문제가 없음 런타임시 오류발생함 any로 인식
+
+// let combineValue;
+// combineValue = add;
+// combineValue = 5;
+// console.log(combineValue(8, 8));
+
+// 다른 2가지의 function일 경우 구분하지못함
+
+// let combineValue: Function;
+// combineValue = add;
+// // combineValue = printResult;
+// console.log(combineValue(8, 8));
+
+let combineValue: (a: number, b: number) => number;
+combineValue = add;
+console.log(combineValue(8, 8));
