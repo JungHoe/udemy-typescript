@@ -4,13 +4,18 @@ function add(a: number, b: number): number {
   return a + b;
 }
 
-function printResult0(numb: number): undefined {
-  return;
-}
+// function printResult0(numb: number): undefined {
+//   return;
+// }
 function printResult(numb: number): void {
   //return type을 void로 추론함
 
   console.debug("🤔 ~ file: app.ts:10 ~ pinrtResult ~ numb", numb);
+}
+
+function addAndHandle(a: number, b: number, callBack: (c: number) => void) {
+  const result = a + b;
+  callBack(result);
 }
 
 // printResult(add(10, 5));
@@ -33,3 +38,8 @@ console.log(printResult(add(10, 5)));
 let combineValue: (a: number, b: number) => number;
 combineValue = add;
 console.log(combineValue(8, 8));
+
+addAndHandle(10, 20, (res) => {
+  console.log(res);
+  return res;
+});
