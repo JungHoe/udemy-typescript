@@ -1,8 +1,7 @@
-//상수와 리터럴의 차이를 생각하자
-
+type Combineable = number | string;
 const combine = (
-  a: number | string,
-  b: number | string,
+  a: Combineable,
+  b: Combineable,
   resultType: "as-number" | "as-text" //리터럴타입
 ) => {
   let result: any;

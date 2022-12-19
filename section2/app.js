@@ -1,4 +1,3 @@
-//상수와 리터럴의 차이를 생각하자
 var combine = function (a, b, resultType //리터럴타입
 ) {
     var result;
