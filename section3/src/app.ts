@@ -2,7 +2,16 @@ const buttonDom = document.body.querySelector("button")!; //!는 typescript에�
 
 console.debug("🤔 ~ file: app.ts:3 ~ buttonDom", buttonDom);
 
+function add(num1: number, num2: number) {
+  const sum = num1 + num2;
+  if (sum > 0) {
+    return sum;
+  }
+  return;
+}
+
 const clickHandler = (msg: string) => {
+  // let userName = "Junghoe";
   console.log(msg);
 };
 
