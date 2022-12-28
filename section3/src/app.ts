@@ -2,6 +2,8 @@ const buttonDom = document.body.querySelector("button")!; //!는 typescript에�
 
 console.debug("🤔 ~ file: app.ts:3 ~ buttonDom", buttonDom);
 
-buttonDom.addEventListener("click", () => {
-  console.log("clicked");
-});
+const clickHandler = (msg: string) => {
+  console.log(msg);
+};
+
+buttonDom.addEventListener("click", clickHandler.bind(null, "you are welcome"));
