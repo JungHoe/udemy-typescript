@@ -34,3 +34,24 @@ buttonDom.addEventListener("click", (e) => {
   console.log(e);
 });
 printf(add(5));
+
+const hobbies = ["Sports", "Cooking"];
+const newHobby = ["Computer Games"];
+
+newHobby.push(...hobbies);
+
+console.log(newHobby);
+
+const person = {
+  name: "hong guy",
+  age: 16,
+};
+
+console.debug("🤔 ~ file: app.ts:50 ~ person", person);
+
+// const copyedPerson = person; pointer copy
+const copyedPerson = { ...person };
+
+console.debug("🤔 ~ file: app.ts:55 ~ copyedPerson", copyedPerson);
+
+console.log(person === copyedPerson);
