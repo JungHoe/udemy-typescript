@@ -1,13 +1,12 @@
 console.log("good");
 
 class Department {
-  name: string;
+  // private name: string;
   private employees: string[] = [];
-  constructor(initName: string) {
-    this.name = initName;
-  }
+
+  constructor(private id: string, private name: string) {}
   describe(this: Department) {
-    console.log("department :::" + this.name);
+    console.log(`department ::: ${this.id}__${this.name}`);
   }
   addEmployee(employee: string) {
     this.employees.push(employee);
@@ -19,7 +18,7 @@ class Department {
   }
 }
 
-const it = new Department("IT");
+const it = new Department("A001", "IT");
 
 console.debug("🤔 ~ file: app.ts:12 ~ it", it);
 
