@@ -15,4 +15,7 @@ const clickHandler = (msg: string) => {
   console.log(msg);
 };
 
-buttonDom.addEventListener("click", clickHandler.bind(null, "you are welcome"));
+buttonDom.addEventListener(
+  "click",
+  clickHandler.bind(null, "you are welcome!")
+);
