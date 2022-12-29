@@ -56,9 +56,27 @@
 
 // console.log(person === copyedPerson);
 
-const add = (...numbers: number[]) =>
-  numbers.reduce((prev, curr) => prev + curr, 0);
+// const add = (...numbers: number[]) =>
+//   numbers.reduce((prev, curr) => prev + curr, 0);
 
-const addNumbers = add(1, 2, 3, 45, 1, 512, 5);
+// const addNumbers = add(1, 2, 3, 45, 1, 512, 5);
 
-console.debug("🤔 ~ file: app.ts:63 ~ addNumbers", addNumbers);
+// console.debug("🤔 ~ file: app.ts:63 ~ addNumbers", addNumbers);
+
+const numbers = [1, 23, 4, 5];
+
+const [value1, value2] = numbers;
+
+console.log(value1);
+console.log(value2);
+
+const person = {
+  firstName: "hong guy",
+  age: 16,
+};
+
+const { firstName, age } = person;
+
+console.debug("🤔 ~ file: app.ts:80 ~ age", age);
+
+console.debug("🤔 ~ file: app.ts:80 ~ firstName", firstName);
