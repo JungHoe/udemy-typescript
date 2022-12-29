@@ -4,7 +4,7 @@ class Department {
   // private name: string;
   private employees: string[] = [];
 
-  constructor(private id: string, private name: string) {}
+  constructor(private readonly id: string, private name: string) {}
   describe(this: Department) {
     console.log(`department ::: ${this.id}__${this.name}`);
   }
