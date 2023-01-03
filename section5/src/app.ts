@@ -28,8 +28,24 @@ class ItDepartment extends Department {
 }
 
 class AcountingDepartment extends Department {
+  private lastReport: string;
+  get recentReport() {
+    if (this.lastReport) {
+      return this.lastReport;
+    }
+    throw new Error("No report Found");
+  }
+  set recentReport(text: string) {
+    if (text.trim() !== "") {
+      this.addReport(text);
+      return;
+    }
+    throw new Error("invalid value");
+  }
+
   constructor(id: string, private reports: string[]) {
     super(id, "Accounting");
+    this.lastReport = reports[0];
   }
   // override 가능
   addEmployee(name: string): void {
@@ -40,6 +56,7 @@ class AcountingDepartment extends Department {
   }
   addReport(text: string) {
     this.reports.push(text);
+    this.lastReport = text;
   }
   printReport() {
     console.log(this.reports);
@@ -57,7 +74,12 @@ it.addEmployee("Minu");
 it.describe();
 console.log(it);
 const accounting = new AcountingDepartment("A001", []);
+
 accounting.addReport("Add Wrong Report");
+// setter 를 사용할땐 값을 =로 주입한다.
+// accounting.recentReport = "";
+accounting.recentReport = "Test";
+console.log(accounting.recentReport);
 
 accounting.printReport();
 
