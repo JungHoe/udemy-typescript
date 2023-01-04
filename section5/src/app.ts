@@ -18,6 +18,7 @@ add = (a: number, b: number) => {
 };
 interface Named {
   readonly name: string;
+  outputName?: string; // 옵션으로 구현 여부 지정
 }
 interface Greetable extends Named {
   greet(phrase: string): void;
