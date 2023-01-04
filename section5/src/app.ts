@@ -5,6 +5,17 @@
 // };
 
 // type과 동일해 보이지만 interface는 객체의 구조를 설명하기 위해서만 사용한다
+
+// type addFunc = (a:number,b:number)=>number;
+interface addFunc {
+  (a: number, b: number): number;
+}
+
+let add: addFunc;
+
+add = (a: number, b: number) => {
+  return a + b;
+};
 interface Named {
   readonly name: string;
 }
