@@ -5,12 +5,14 @@
 // };
 
 // type과 동일해 보이지만 interface는 객체의 구조를 설명하기 위해서만 사용한다
-interface Greetable {
-  name: string;
+interface Named {
+  readonly name: string;
+}
+interface Greetable extends Named {
   greet(phrase: string): void;
 }
 
-class Person implements Greetable {
+class Person implements Greetable, Named {
   constructor(public name: string) {}
 
   greet(this: Person, phrase: string) {
