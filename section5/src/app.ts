@@ -36,6 +36,14 @@ class ItDepartment extends Department {
 
 class AcountingDepartment extends Department {
   private lastReport: string;
+  private static instance: AcountingDepartment;
+  static getInstance() {
+    if (AcountingDepartment.instance) {
+      return this.instance;
+    }
+    this.instance = new AcountingDepartment("A001", []);
+    return this.instance;
+  }
   get recentReport() {
     if (this.lastReport) {
       return this.lastReport;
@@ -50,7 +58,7 @@ class AcountingDepartment extends Department {
     throw new Error("invalid value");
   }
 
-  constructor(id: string, private reports: string[]) {
+  private constructor(id: string, private reports: string[]) {
     super(id, "Accounting");
     this.lastReport = reports[0];
   }
@@ -79,7 +87,12 @@ it.addEmployee("Maxi");
 it.addEmployee("Minu");
 it.describe();
 console.log(it);
-const accounting = new AcountingDepartment("A001", []);
+const accounting = AcountingDepartment.getInstance();
+
+console.debug("🤔 ~ file: app.ts:92 ~ accounting", accounting);
+const accounting2 = AcountingDepartment.getInstance();
+
+console.debug("🤔 ~ file: app.ts:95 ~ accounting2", accounting2);
 
 accounting.addReport("Add Wrong Report");
 // setter 를 사용할땐 값을 =로 주입한다.
