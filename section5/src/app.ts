@@ -1,17 +1,16 @@
 console.log("good");
 
-class Department {
-  //static member는 클래스 내부에서 this로 접근할수없다.
+abstract class Department {
+  //static member는 클래스 내부에서 thi접근할수없다.
   static fiscalYear = 2020;
   // private name: string;
   // private employees: string[] = [];
   // protected 제어자는 하위 개체에서도 접근 가능하도록 한다.
   protected employees: string[] = [];
 
-  constructor(private readonly id: string, private name: string) {}
-  describe(this: Department) {
-    console.log(`department ::: ID=${this.id}  Name=${this.name}`);
-  }
+  constructor(protected readonly id: string, private name: string) {}
+  abstract describe(this: Department): void;
+
   static createEmployee(name: string) {
     return { name };
   }
@@ -29,6 +28,9 @@ class ItDepartment extends Department {
   constructor(id: string, public admins: string[]) {
     super(id, "IT"); //super 는 부모 생성자를 호출한다.
     // this.admins=admins;
+  }
+  describe(this: ItDepartment): void {
+    console.log(this.id, " ::: It_id");
   }
 }
 
@@ -66,11 +68,10 @@ class AcountingDepartment extends Department {
   printReport() {
     console.log(this.reports);
   }
+  describe(this: AcountingDepartment): void {
+    console.log(this.id, " ::: Accounting_id");
+  }
 }
-
-const dept = new Department("D001", "dept");
-
-console.debug("🤔 ~ file: app.ts:30 ~ dept", dept);
 
 const it = new ItDepartment("I001", ["Chan"]);
 
