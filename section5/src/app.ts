@@ -1,6 +1,8 @@
 console.log("good");
 
 class Department {
+  //static member는 클래스 내부에서 this로 접근할수없다.
+  static fiscalYear = 2020;
   // private name: string;
   // private employees: string[] = [];
   // protected 제어자는 하위 개체에서도 접근 가능하도록 한다.
@@ -9,6 +11,9 @@ class Department {
   constructor(private readonly id: string, private name: string) {}
   describe(this: Department) {
     console.log(`department ::: ID=${this.id}  Name=${this.name}`);
+  }
+  static createEmployee(name: string) {
+    return { name };
   }
   addEmployee(employee: string) {
     this.employees.push(employee);
@@ -86,3 +91,11 @@ accounting.printReport();
 accounting.addEmployee("Junghoe");
 accounting.addEmployee("Max");
 accounting.printEmployee();
+
+const employee1 = Department.createEmployee("Junghoe");
+
+console.debug(
+  "🤔 ~ file: app.ts:95 ~ employee1",
+  employee1,
+  Department.fiscalYear
+);
