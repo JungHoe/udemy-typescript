@@ -65,6 +65,8 @@ const v2 = new Truck();
 
 function useVehicle(veheicle: Vehicle) {
   veheicle.drive();
+  // interface로 구현시 instanceof 는 사용할수없다
+  // 왜why? interface는 자바스크립트로 컴파일되지않기때문
   if (veheicle instanceof Truck) {
     veheicle.loadCargo(1000);
   }
@@ -72,3 +74,29 @@ function useVehicle(veheicle: Vehicle) {
 
 useVehicle(v1);
 useVehicle(v2);
+
+interface Bird {
+  type: "bird";
+  flyingSpeed: number;
+}
+
+interface Horse {
+  type: "horse";
+  runningSpeed: number;
+}
+
+type Animal = Bird | Horse;
+
+function moveAnimal(animal: Animal) {
+  let speed;
+  switch (animal.type) {
+    case "bird":
+      speed = animal.flyingSpeed;
+      break;
+    case "horse":
+      speed = animal.runningSpeed;
+  }
+  console.log("Moving at spped : " + speed);
+}
+
+moveAnimal({ type: "bird", flyingSpeed: 10 });
