@@ -112,3 +112,12 @@ inputElement.value = "Good Day~";
 // 3. if로 null 여부를 체크시
 // const inputElement = document.getElementById("user-input");
 // if(inputElement) (inputElement as HTMLInputElement).value = "Good Day~";
+
+interface ErrorContainer {
+  [keys: string]: string;
+}
+
+const errorManager: ErrorContainer = {
+  email: "Not a valid Email!",
+  userName: "user name is required",
+};
