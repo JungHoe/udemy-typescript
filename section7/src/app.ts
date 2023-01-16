@@ -36,3 +36,17 @@ const mergedObj = merge<{ name: string }, { age: number }>(
   { age: 30 }
 );
 console.debug("🤔 ~ file: app.ts:36 ~ mergedObj", mergedObj);
+
+interface Ilength {
+  length: number;
+}
+
+const countAndDescribe = <T extends Ilength>(element: T): [T, string] => {
+  let text = "😍";
+  if (element.length > 0) {
+    text += ` X ${element.length}`;
+  }
+  return [element, text];
+};
+
+console.log(countAndDescribe("Hi man~"));
