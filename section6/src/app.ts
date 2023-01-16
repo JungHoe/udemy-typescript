@@ -100,3 +100,15 @@ function moveAnimal(animal: Animal) {
 }
 
 moveAnimal({ type: "bird", flyingSpeed: 10 });
+
+const division = document.getElementById("message-output")!;
+// 1.<> 안에 타입을 명시하여 type casting 가능함
+// const inputElement = <HTMLInputElement>document.getElementById("user-input")!;
+
+// 2.뒤에 as 키워드를 사용하여 타입을 명시
+const inputElement = document.getElementById("user-input")! as HTMLInputElement;
+inputElement.value = "Good Day~";
+
+// 3. if로 null 여부를 체크시
+// const inputElement = document.getElementById("user-input");
+// if(inputElement) (inputElement as HTMLInputElement).value = "Good Day~";
