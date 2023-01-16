@@ -50,3 +50,9 @@ const countAndDescribe = <T extends Ilength>(element: T): [T, string] => {
 };
 
 console.log(countAndDescribe("Hi man~"));
+
+const keyAccessor = <T extends object, U extends keyof T>(obj: T, key: U) => {
+  return obj[key];
+};
+
+console.log(keyAccessor({ name: "Junghoe" }, "name"));
