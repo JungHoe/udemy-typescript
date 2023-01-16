@@ -23,6 +23,8 @@ type Numeric = number | boolean;
 // 두 타입중 중복되는 타입만 허용한다.
 type Universal = Combinaable & Numeric;
 
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
 function add(a: Combinaable, b: Combinaable) {
   // 유니온타입의 동작을 명확하게해주는 type 검사를
   // type Guard 라고 한다.
@@ -31,6 +33,9 @@ function add(a: Combinaable, b: Combinaable) {
   }
   return a + b;
 }
+// 숫자를 매개변수로 넘겨도 ts는 number로 리턴될지 예상하지못함
+// number or string 으로 넘어올것만 예상함 따라서 함수 overloading해야됨
+const result = add(1, 5);
 
 type UnknownEmployee = Employee | Admin;
 
