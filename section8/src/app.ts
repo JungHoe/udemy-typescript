@@ -7,9 +7,19 @@ function Logger(logString: string) {
     console.log(constructor, "확인용");
   };
 }
-
+function WithTemplate(template: string, hookId: string) {
+  return function (constructor: any) {
+    const hookElemnet = document.getElementById(hookId);
+    const p = new constructor();
+    if (hookElemnet) {
+      hookElemnet.innerHTML = template;
+      hookElemnet.querySelector("h1")!.textContent = p.name;
+    }
+  };
+}
 //인스턴스화 되지않아도 데코레이터가 실행된다.
-@Logger("LOGGING-PERSON")
+// @Logger("LOGGING-PERSON")
+@WithTemplate("<h1>My Person Object</h1>", "app")
 class Person {
   name = "Max";
 
