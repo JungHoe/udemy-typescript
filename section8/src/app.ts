@@ -95,3 +95,35 @@ class Product {
     return this._price * (1 + tax);
   }
 }
+
+const p1 = new Product("Book", 19);
+
+const p2 = new Product("Book", 29);
+
+function Autobind(
+  _target: any,
+  _methodName: string,
+  descriptor: PropertyDescriptor
+) {
+  const originalMehtod = descriptor.value;
+  const adjDescriptor: PropertyDescriptor = {
+    configurable: true,
+    enumerable: false,
+    get: function () {
+      const boundFn = originalMehtod.bind(this);
+      return boundFn;
+    },
+  };
+  return adjDescriptor;
+}
+class Printer {
+  message = "This is Message!";
+  @Autobind
+  showMessage() {
+    console.log(this.message);
+  }
+}
+
+const printInstance = new Printer();
+const buttonDom = document.querySelector("button")!;
+buttonDom.addEventListener("click", printInstance.showMessage);
